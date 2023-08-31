@@ -1,18 +1,24 @@
+"use client"
 import { IPosts } from '@/app/interfaces/interface'
 import Image from 'next/image'
 import React, { FC } from 'react'
+import { useRouter } from 'next/navigation'
 
 interface IContent {
     data: IPosts[]
 }
 
 const Content: FC<IContent> = ({ data }) => {
+    const router = useRouter();
     return (
         <div className='py-4 flex flex-col gap-3'>
             {data.map((item) => {
                 return (
-                    <div key={item.id} className=''>
-                        <p className='text-sm'>Published in <span className='font-bold'>{item.categories.name}</span> - {item.created_at}</p>
+                    <div
+                        onClick={() => router.push(`/${item.id}`)}
+                        key={item.id}
+                        className='cursor-pointer'>
+                        <p className='text-sm text-[#6B6B6B]'> Published in <span className='font-bold text-black'>{item.categories.name}</span> - {item.created_at}</p>
                         <div
                             key={item.id}
                             className='grid grid-cols-12 h-36 items-start border-b pb-4'

@@ -7,12 +7,7 @@ import CustomSelect from '@/app/components/CustomSelect'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css';
 import supabase from '@/supabase/supabase'
-
-interface IFormPost {
-    title: string,
-    author: string,
-    category: number
-}
+import { IFormPost } from '@/app/interfaces/interface'
 
 const modules = {
     toolbar: [
@@ -31,6 +26,8 @@ const AddPost = () => {
         title: '',
         author: '',
         category: 0,
+        image: '',
+        summary: ''
     })
     const [richText, setRichText] = useState<string>('');
 
@@ -42,7 +39,9 @@ const AddPost = () => {
                 setForm({
                     title: data.title,
                     author: data.author,
-                    category: data.category
+                    category: data.category,
+                    image: data.thumbnail,
+                    summary: data.summary
                 })
                 setRichText(data.content)
             }
@@ -111,6 +110,20 @@ const AddPost = () => {
                     value={form.author}
                     required
                     handleChange={(value: string) => handleChange(value, 'author')}
+                />
+                <CustomInput
+                    label='Url Thumbnail'
+                    placeholder='Masukan Url Thumbnail'
+                    value={form.image}
+                    required
+                    handleChange={(value: string) => handleChange(value, 'image')}
+                />
+                <CustomInput
+                    label='Ringkasan'
+                    placeholder='Masukan Ringkasan'
+                    value={form.summary}
+                    required
+                    handleChange={(value: string) => handleChange(value, 'summary')}
                 />
                 <div>
                     <ReactQuill

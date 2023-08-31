@@ -11,8 +11,6 @@ interface IUser {
 }
 
 const Login = () => {
-    const router = useRouter();
-    const isLogin = useLoginStore((state) => state.isLogin);
     const setIsLogin = useLoginStore((state) => state.setIsLogin);
     const [typePassword, setTypePassword] = useState<string>('password')
     const [user, setUser] = useState<IUser>({
@@ -41,7 +39,7 @@ const Login = () => {
     return (
         <div>
             <div className='flex justify-center'>
-                <h1 className='text-3xl font-bold'>Login sek</h1>
+                <h1 className='text-3xl font-bold'>Login</h1>
                 <div className='flex flex-col items-center mt-20 bg-white w-1/2 rounded-3xl'>
                     <CustomInput
                         label='username'

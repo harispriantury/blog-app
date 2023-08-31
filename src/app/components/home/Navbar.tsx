@@ -4,20 +4,24 @@ import React from 'react'
 import { FaCircleUser } from 'react-icons/fa6'
 import { IoIosArrowDown } from 'react-icons/io'
 import CustomButton from '../CustomButton'
+import Logo from '../Logo'
 
 const Navbar = () => {
     return (
-        <nav className='flex justify-between items-center bg-[#27374D] p-4'>
-            <div className='flex items-center'>
-                <p className='text-white'>logo</p>
-                <input type="text" placeholder='search' />
+        <nav className='fixed right-0 left-0 flex justify-between items-center bg-[#27374D] px-5 py-3'>
+            <div className='flex items-center gap-5'>
+                <Logo />
             </div>
             <div className='flex items-center gap-3 text-3xl text-white cursor-pointer relative'>
+                <input
+                    className='px-3 py-2 rounded-lg text-base text-black mr-6'
+                    placeholder='search'
+                />
                 <FaCircleUser />
                 <span className='text-base'>
                     <IoIosArrowDown />
                 </span>
-                <Link href={'/admin'} className='bg-[#526D82] text-white text-base px-3 py-2 rounded-lg'>
+                <Link href={'/admin'} className='bg-white text-[#27374D] text-base px-3 py-2 rounded-lg'>
                     CMS
                 </Link>
                 <div className='absolute bg-yellow-200 top-full right-1/2 p-10 text-base hidden'>

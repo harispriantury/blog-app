@@ -31,3 +31,11 @@ export interface ImenuBar {
   name: string;
   code: string;
 }
+
+export interface IFormPost {
+  title: string;
+  author: string;
+  category: number;
+  image: string;
+  summary: string;
+}

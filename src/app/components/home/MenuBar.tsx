@@ -48,7 +48,7 @@ const MenuBar = () => {
                     menuBars.map((item) => {
                         return (
                             <button
-                                className={`${item.code === activeBar ? 'border-b-2 border-black font-bold' : ''}`}
+                                className={`${item.code === activeBar ? 'border-b-2 border-black' : 'text-[#6B6B6B]'}`}
                                 onClick={() => setActiveBar(item.code)}
                                 key={item.code}>
                                 {item.name}

@@ -7,14 +7,8 @@ import CustomSelect from '@/app/components/CustomSelect'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css';
 import supabase from '@/supabase/supabase'
+import { IFormPost } from '@/app/interfaces/interface'
 
-interface IFormPost {
-    title: string,
-    author: string,
-    category: number,
-    image: string,
-    summary: string,
-}
 
 const modules = {
     toolbar: [
