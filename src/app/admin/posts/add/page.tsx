@@ -4,10 +4,12 @@ import CustomButton from '@/app/components/CustomButton'
 import { useRouter } from 'next/navigation'
 import CustomInput from '@/app/components/CustomInput'
 import CustomSelect from '@/app/components/CustomSelect'
-import ReactQuill from 'react-quill'
+// import ReactQuill from 'react-quill'
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import 'react-quill/dist/quill.snow.css';
 import supabase from '@/supabase/supabase'
 import { IFormPost } from '@/app/interfaces/interface'
+import dynamic from 'next/dynamic'
 
 
 const modules = {
@@ -113,9 +115,9 @@ const AddPost = () => {
                         onChange={(e: string) => setRichText(e)} />
                 </div>
                 <div>
-                    <div dangerouslySetInnerHTML={{ __html: richText }}>
+                    {/* <div dangerouslySetInnerHTML={{ __html: richText }}>
 
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div className='flex gap-2'>
